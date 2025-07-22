@@ -1,11 +1,11 @@
 #include<iostream>
 using namespace std;
 void zero(int a[],int n){
- int nonzero=n-1;
+ int nonzero=0;
  for(int i=0;i<n;i++){
-    if(a[i]==0){
+    if(a[i]!=0){
         swap(a[i],a[nonzero]);
-        nonzero--;
+        nonzero++;
     }
  }
 }
