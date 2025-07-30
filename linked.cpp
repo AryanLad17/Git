@@ -14,17 +14,16 @@ int main(){
             n[i].next=&n[i+1];
         }
         else{
-            n[i]={n[i].data, NULL};
+            n[i].next=nullptr;
         }
     }
     node* temp=n;
     cout<<"The elements in the linked list are: ";
-    while(temp!=NULL){
+    while(temp!=nullptr){
         cout<<temp->data<<" ";
         temp=temp->next;
     }
     cout<<endl;
     delete[] n;
     return 0;
-
 }
