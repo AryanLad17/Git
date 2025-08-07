@@ -27,7 +27,7 @@ int main(){
             tail=newnode;
         }
     }
-     cout<<"Doubly Linked list :";
+    cout<<"Doubly Linked list :";
     Node* temp=head;
     while(temp!=nullptr){
         cout<<temp->data<<" ";
