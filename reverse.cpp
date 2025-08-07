@@ -1,61 +1,76 @@
 #include<iostream>
 using namespace std;
-struct Node{
-	int data;
-	Node* next;
+
+struct Node {
+    int data;
+    Node* next;
 };
-class LinkedList{
-	private:
-		Node* head;
-	public:
-	LinkedList(){
-		head=NULL;
-	}
-    void insert(int n){
-        for(int i=0;i<n;i++){
-            Node* newnode=new Node;
-            cout<<"Data "<<i+1<<" : ";
-            cin>>newnode->data;
-            newnode->next=nullptr;
-            if(head==nullptr){
-                head=newnode;
-            }
-            else {
-                Node* temp=head;
-                while(temp->next!=nullptr){
-                    temp=temp->next;
+
+class LinkedList {
+private:
+    Node* head;
+
+public:
+    LinkedList() {
+        head = nullptr;
+    }
+
+    void insert(int n) {
+        for (int i = 0; i < n; i++) {
+            Node* newnode = new Node;
+            cout << "Data " << i + 1 << " : ";
+            cin >> newnode->data;
+            newnode->next = nullptr;
+
+            if (head == nullptr) {
+                head = newnode;
+            } else {
+                Node* temp = head;
+                while (temp->next != nullptr) {
+                    temp = temp->next;
                 }
-                temp->next=newnode;
+                temp->next = newnode;
             }
         }
     }
-    void print(){
-		Node* temp=head;
-        while(temp!=nullptr){
-        cout<<temp->data<<" ";
-            temp=temp->next;
+
+    void print() {
+        Node* temp = head;
+        while (temp != nullptr) {
+            cout << temp->data << " ";
+            temp = temp->next;
         }
-	}
-    void reveruntil(Node* curr,Node* prev){
-        Node* curr=head;
-        Node* prev=nullptr;
-        if(curr==nullptr){
-            head=prev;
+    }
+
+    void reverseUntil(Node* curr, Node* prev) {
+        if (curr == nullptr) {
+            head = prev; // ✅ update head at the end of recursion
             return;
         }
-        Node* next=curr->next;
-        reveruntil(next,curr);
-        curr->next=prev;
+
+        Node* next = curr->next;
+        reverseUntil(next, curr);
+        curr->next = prev;
     }
+
     void reverse() {
-        reveruntil(head,nullptr);
-        Node* temp=head;
-        while(temp!=nullptr){
-            cout<<temp->data<<" ";
-            temp=temp->next;
+        reverseUntil(head, nullptr);
+        Node* temp = head;
+        while (temp != nullptr) {
+            cout << temp->data << " ";
+            temp = temp->next;
         }
     }
 };
-int main(){
-    
+
+int main() {
+    LinkedList l;
+    l.insert(5);
+    cout << "Original List: ";
+  //  l.print();
+    cout << endl;
+    cout << "Reversed List: ";
+    l.reverse();
+    cout << endl;
+    return 0;
 }
