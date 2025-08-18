@@ -44,7 +44,7 @@ public:
 
     void reverseUntil(Node* curr, Node* prev) {
         if (curr == nullptr) {
-            head = prev; // ✅ update head at the end of recursion
+            head = prev; // 
             return;
         }
 
