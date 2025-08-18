@@ -27,7 +27,7 @@ int main(){
                 temp=temp->next;
             }
             temp->next=newnode;
-            temp->prev=temp;
+            newnode->prev=temp;
 
         }
     }
