@@ -10,7 +10,7 @@ int main(){
     cout<<"Enter teh number of nodes:";
     cin>>n;
     Node* head=nullptr;
-    Node* tail=nullptr;
+   // Node* tail=nullptr;
     for(int i=0;i<n;++i){
         Node* newnode=new Node;
         cout<<"Enter the data for Node "<<i+1<<": ";
@@ -19,12 +19,16 @@ int main(){
         newnode->prev=nullptr;
         if(head==nullptr){
             head=newnode;
-            tail=newnode;
+            //tail=newnode;
         }
         else{
-            tail->next=newnode;
-            newnode->prev=tail;
-            tail=newnode;
+            Node* temp=head;
+            while(temp->next!=nullptr){
+                temp=temp->next;
+            }
+            temp->next=newnode;
+            temp->prev=temp;
+
         }
     }
     cout<<"Doubly Linked list :";
