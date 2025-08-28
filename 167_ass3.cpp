@@ -15,7 +15,7 @@ class Playlist{
            
             for(int i=0;i<2;i++){
                 Node* newnode=new Node;
-            newnode->next = nullptr;
+                newnode->next = nullptr;
                 cout<<"ENter song "<<i+1<<"  title:";
                 getline(cin, newnode->title);
 

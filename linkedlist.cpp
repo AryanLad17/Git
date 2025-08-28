@@ -4,8 +4,8 @@ struct Node{
     int data;
     Node* next;
 };
-int  whatdoesitdo(){
-     Node* head=nullptr;
+int  whatdoesitdo(Node* head){
+    // Node* head=nullptr;
     Node* temp1=head;
     Node* temp2=head;
     while(temp1 && temp1->next){
@@ -39,8 +39,9 @@ int main(){
         cout<<temp->data<<" ";
         temp=temp->next;
     }
-    whatdoesitdo();
-    
+    cout<<endl;
+    cout<<whatdoesitdo(head);
+    cout<<endl;
     return 0;
 
 }
