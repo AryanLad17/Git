@@ -25,8 +25,8 @@ class CLL{
                     tail->prev=tail;
                 }
                 else{
-                    Node* temp=tail->next;                    
-                    newnode->next=temp;
+                    Node* head=tail->next;                    
+                    newnode->next=head;
                     newnode->prev=tail;
                     tail->next=newnode;
                     tail->prev=newnode;
